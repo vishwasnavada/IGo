@@ -1,0 +1,52 @@
+//ELM327 AT Commands
+//  OBDII.print("ATZ\r");             Used        // --> Reset OBD
+//  OBDII.print("ATE0\r");            Used        // --> Echo off
+//  OBDII.print("ATI\r");                         // --> Sparkfun OBD-II response "ELM327 v1.3a"
+//OBD-II PID Codes
+//  OBDII.print("010C\r");            Used        // --> Vehicle RPM - 1/4RPM
+//  OBDII.print("010D\r");            Used        // --> Vehicle speed - km/hr
+//  OBDII.print("015C\r");-No Data                // --> Oil Temperature in Celcius
+//  OBDII.print("012F\r");                        // --> Fuel gauge 0-100% (255=100%)
+//  OBDII.print("0142\r");-No Data                // --> Battery Voltage in vdc
+//  OBDII.print("0105\r");                        // --> Water Temperature in Celcius
+//  OBDII.print("010F\r");                        // --> Intake Air Temperature
+//  OBDII.print("0146\r");-No Data                // --> Ambient Temperature
+//  OBDII.print("0111\r");                        // --> Throttle 0-100% (255=100%)
+//  OBDII.print("0110\r");-No Data                // --> Air Flow
+//  OBDII.print("0133\r");-No Data                // --> Barometric Preasure
+//
+// ------------------------------------------------------------------------------
+
+// - GPS (GNSS) locating
+// - SD card use for data logging and audio
+// - Google Earth data loging (KML format)
+// - Audible speed callouts at 60,65,70,75,80,85,90,95 KPM
+//
+
+
+
+// Operation:
+//   The OBD, once connected, will continue to cycle through producing readings from
+//   the vehicle. Once the GNSS is signaling/location is received, the logging begins. To close
+//   the logging the OBD connector is to be removed, and remain inactive for 20-30 seconds before the
+//   file is closed.
+//
+// Compiler Program Control
+// - VER_SPRESENSE - Not used. Intended for making the code portable between differnet boards
+// - VER_MONITORING - If defined will send some debuging messages over IDE monitor
+// - VER_AUDIO - If defined incorporates the Audio component. Doing so will result in no KML loggging
+// - VER_OBD - If not defined will run, simulating OBD input (Check SD>file>KML)
+//
+
+//
+// Key GNSS data elements:
+//   pNavData->latitude                          // Latitude
+//   pNavData->longitude                         // Longitude
+//   pNavData->time.year                         // Year
+//   pNavData->time.month                        // Month
+//   pNavData->time.day                          // Day
+//   pNavData->time.hour                         // Hour
+//   pNavData->time.minute                       // Minutes
+//   fsec                                        // Seconds in floating point notation
+//   pNavData->getSatelliteElevation(1)          // Elevation of Satellite 1
+// ------------------------------------------------------------------------------
